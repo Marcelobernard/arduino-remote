@@ -50,7 +50,7 @@ void setup() {
   config.pixel_format = PIXFORMAT_JPEG; 
 
   if(psramFound()){
-    config.frame_size = FRAMESIZE_CIF; // FRAMESIZE_ + QVGA|CIF|VGA|SVGA|XGA|SXGA|UXGA
+    config.frame_size = FRAMESIZE_CIF;
     config.jpeg_quality = 10;
     config.fb_count = 2;
   } else {
@@ -59,7 +59,6 @@ void setup() {
     config.fb_count = 1;
   }
 
-  // Init Camera
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
@@ -69,7 +68,6 @@ void setup() {
   camera_fb_t * fb = NULL;
   digitalWrite(LED, HIGH);
   delay(1000);
-  // Take Picture with Camera
   fb = esp_camera_fb_get();  
   if(!fb) {
     Serial.println("Camera capture failed");
