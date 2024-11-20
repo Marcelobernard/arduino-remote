@@ -18,7 +18,6 @@ void setupMotors() {
   pinMode(motor2PinB, OUTPUT);
 }
 
-// Funções de controle
 void moveForward() {
   digitalWrite(motor1PinA, HIGH);
   digitalWrite(motor1PinB, LOW);
